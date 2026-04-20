@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         // Expect the rest server to be running in a separate window:
         //   io.github.nathanjrussell.restserver.RestServerMain
-        String baseUrl = args.length > 0 && !args[0].isBlank() ? args[0] : "http://127.0.0.1:8080";
+        String baseUrl = args.length > 0 && !args[0].isBlank() ? args[0] : "http://52.23.172.152:8080";
 
         URI writeEndpoint = URI.create(baseUrl + "/employee");
         URI readEndpoint = URI.create(baseUrl + "/employees");
@@ -25,8 +25,8 @@ public class Main {
         Employee e3 = sampleEmployee("E-1003", "Katherine", "Johnson", Role.PROJECT_MANAGER);
 
         // Write individually (JSON goes over the wire; both client/server use the shared model locally)
-        api.write(writeEndpoint, e1);
-        api.write(writeEndpoint, e2);
+//        api.write(writeEndpoint, e1);
+//        api.write(writeEndpoint, e2);
         api.write(writeEndpoint, e3);
 
         // Read back as list
@@ -39,7 +39,7 @@ public class Main {
         }
 
         // Demonstrate lookUp
-        System.out.println("Look up E-1002 => " + employees.lookUp("E-1002").employee().firstName());
+//        System.out.println("Look up E-1002 => " + employees.lookUp("E-1002").employee().firstName());
 
         // Demonstrate that we can take the list and add to another local Employees instance.
         Employees localCopy = new Employees();
